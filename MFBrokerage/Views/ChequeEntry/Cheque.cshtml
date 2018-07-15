@@ -1,0 +1,164 @@
+﻿@model MFBrokerage.Models.ChequeEntryModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.12.4.js"></script>
+<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+@*<script src="~/Scripts/jquery-3.3.1.min.js"></script>*@
+<script src="~/Scripts/Brokerage/ChequeEntry.js"></script>
+<script>  
+    $(function () {
+        $("#datepickerChequeReceivedDate").datepicker();
+        $("#datepickerChequeDate").datepicker();
+        $("#datepickerBrokeragePeriodFrom").datepicker();
+        $("#datepickerBrokeragePeriodTo").datepicker();
+    });
+</script>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Cheque</title>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>Cheque Entry</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.ChequeDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ChequeDate, new { htmlAttributes = new { @class = "form-control", @id = "datepickerChequeDate" } })
+                    @Html.ValidationMessageFor(model => model.ChequeDate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ChequeReceivedDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ChequeReceivedDate, new { htmlAttributes = new { @class = "form-control", @id = "datepickerChequeReceivedDate" } })
+                    @Html.ValidationMessageFor(model => model.ChequeReceivedDate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ChequeNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ChequeNumber, new { htmlAttributes = new { @class = "form-control", @id = "txtChequeNumber" } })
+                    @Html.ValidationMessageFor(model => model.ChequeNumber, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ChequeAmount, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ChequeAmount, new { htmlAttributes = new { @class = "form-control", @id = "txtChequeAmount" } })
+                    @Html.ValidationMessageFor(model => model.ChequeAmount, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Tax, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Tax, new { htmlAttributes = new { @class = "form-control", @id = "txtTax" } })
+                    @Html.ValidationMessageFor(model => model.Tax, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.BrokeragePeriodFrom, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.BrokeragePeriodFrom, new { htmlAttributes = new { @class = "form-control", @id = "datepickerBrokeragePeriodFrom" } })
+                    @Html.ValidationMessageFor(model => model.BrokeragePeriodFrom, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.BrokeragePeriodTo, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.BrokeragePeriodTo, new { htmlAttributes = new { @class = "form-control", @id = "datepickerBrokeragePeriodTo" } })
+                    @Html.ValidationMessageFor(model => model.BrokeragePeriodTo, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Bank, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Bank, new { htmlAttributes = new { @class = "form-control", @id = "ddlBank" } })
+                    @Html.ValidationMessageFor(model => model.Bank, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Branch, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Branch, new { htmlAttributes = new { @class = "form-control", @id = "ddlBranch" } })
+                    @Html.ValidationMessageFor(model => model.Branch, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ReferenceTag, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ReferenceTag, new { htmlAttributes = new { @class = "form-control", @id = "txtReferenceTag" } })
+                    @Html.ValidationMessageFor(model => model.ReferenceTag, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div style="border: solid thin; width: 300px; padding: 10px">
+                <h5>Brokerage Type</h5>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Trail, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Trail, new { htmlAttributes = new { @class = "form-control", @id = "txtTrail", @onkeyup = "CalculateTotal()" } })
+                        @Html.ValidationMessageFor(model => model.Trail, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Upfront, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Upfront, new { htmlAttributes = new { @class = "form-control", @id = "txtUpfront", @onkeyup = "CalculateTotal()" } })
+                        @Html.ValidationMessageFor(model => model.Upfront, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Clawback, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Clawback, new { htmlAttributes = new { @class = "form-control", @id = "txtClawback", @onkeyup = "CalculateTotal()" } })
+                        @Html.ValidationMessageFor(model => model.Clawback, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Total, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">                           
+                        <label id="lblTotalBrokerage">0</label>                        
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Remarks, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Remarks, new { htmlAttributes = new { @class = "form-control", @id = "txtRemarks" } })
+                    @Html.ValidationMessageFor(model => model.Remarks, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="button" value="Create" id="btnCreate" onclick="CreateCheque()" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+</body>
+</html>

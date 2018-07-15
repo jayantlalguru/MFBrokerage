@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2027
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFBrokerage", "MFBrokerage\MFBrokerage.csproj", "{DCB5FCC6-ABEB-4BCE-9F2F-70FE25A7DC1C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DCB5FCC6-ABEB-4BCE-9F2F-70FE25A7DC1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCB5FCC6-ABEB-4BCE-9F2F-70FE25A7DC1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCB5FCC6-ABEB-4BCE-9F2F-70FE25A7DC1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCB5FCC6-ABEB-4BCE-9F2F-70FE25A7DC1C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {26D50DEB-165C-48A2-B8FB-2BF3D96550F2}
+	EndGlobalSection
+EndGlobal
