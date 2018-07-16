@@ -99,8 +99,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Contents\images\DeleteRowSmall.png" />
     <Content Include="Global.asax" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\Brokerage\BrokerageSlab.js" />
     <Content Include="Scripts\Brokerage\ChequeEntry.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -111,10 +113,15 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="BusinessModel\ChequeEntry.cs" />
+    <Compile Include="Controllers\BrokerageSlabController.cs" />
     <Compile Include="Controllers\ChequeEntryController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\BrokerageSlab\BrokerageSlabFlatFeesModel.cs" />
+    <Compile Include="Models\BrokerageSlab\BrokerageSlabHeaderModel.cs" />
+    <Compile Include="Models\BrokerageSlab\BrokerageSlabModel.cs" />
+    <Compile Include="Models\BrokerageSlab\BrokerageSlabTrailFeesModel.cs" />
     <Compile Include="Models\ChequeEntryModel.cs" />
     <Compile Include="Persistence\ChequeEntryPersistence.cs" />
     <Compile Include="Persistence\DapperConfig.cs" />
@@ -126,6 +133,7 @@
     <Content Include="Views\ChequeEntry\Cheque.cshtml" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+    <Content Include="Views\BrokerageSlab\Create.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

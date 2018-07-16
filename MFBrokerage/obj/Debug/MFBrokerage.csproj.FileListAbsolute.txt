@@ -71,3 +71,5 @@ D:\Work\Projects\DotNet\PracticeProjects\MFBrokerage\MFBrokerage\bin\System.Valu
 D:\Work\Projects\DotNet\PracticeProjects\MFBrokerage\MFBrokerage\bin\AutoMapper.pdb
 D:\Work\Projects\DotNet\PracticeProjects\MFBrokerage\MFBrokerage\bin\AutoMapper.xml
 D:\Work\Projects\DotNet\PracticeProjects\MFBrokerage\MFBrokerage\bin\System.ValueTuple.xml
+D:\Work\Projects\DotNet\PracticeProjects\MFBrokerage\MFBrokerage\bin\Dapper.dll
+D:\Work\Projects\DotNet\PracticeProjects\MFBrokerage\MFBrokerage\bin\Dapper.xml

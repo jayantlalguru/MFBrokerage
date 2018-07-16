@@ -1,0 +1,131 @@
+﻿@model MFBrokerage.Models.BrokerageSlab.BrokerageSlabModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<style type="text/css">
+    form {
+        margin: 20px 0;
+    }
+
+        form input, button {
+            padding: 5px;
+        }
+
+    table {
+        width: 100%;
+        margin-bottom: 20px;
+        border-collapse: collapse;
+    }
+
+    table, th, td {
+        border: 1px solid #cdcdcd;
+    }
+
+        table th, table td {
+            padding: 10px;
+            text-align: left;
+        }
+</style>
+<script src="~/Scripts/Brokerage/BrokerageSlab.js"></script>
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        keepClone();
+        var tdCol = '<td><input type="image" onclick="removeTableRow(' + rowCount + ')" src="/Contents/images/DeleteRowSmall.png" /></td>'
+        $("#rowCount1").append(tdCol);
+    });
+</script>
+@*<script type="text/javascript">
+    $(document).ready(function () {
+        $(document).on('click', '#tblFlatFees .add', function () {
+
+            var row = $(this).closest('tr');
+            var clone = row.clone();
+            var tr = clone.closest('tr');
+            tr.find('input[type=text]').val('');
+            $(this).closest('tr').after(clone);
+            var $span = $("#tblFlatFees tr");
+            $span.attr('id', function (index) {
+                return 'span' + index;
+            });
+        });
+
+        $(document).on('click', '#tblFlatFees .removeRow', function () {
+            //if ($('#master_table .add').length > 1) {
+                $(this).closest('tr').remove();
+            //}
+        });       
+    });
+</script>*@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>BrokerageSlab</title>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>Brokerage Slab</h4>
+            <hr />
+            <div>
+                <input type="button" class="add" onclick="addFlatFeeTableRow()" value="Add Row" />
+            </div>
+            <table id="tblFlatFees">
+                <thead>
+                    <tr>
+                        <th>Brokerage Type</th>
+                        <th>Rate</th>
+                        <th>Amount From</th>
+                        <th>Amount To</th>
+                        <th>Loaction</th>
+                        <th>Include SIP/STP</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr id="rowCount1">
+                        <td>
+                            <select name="BrokerageType">
+                                <option value="1">Upfron/Trail Advance</option>
+                                <option value="2">Add./Spl. Incentives</option>
+                                <option value="3">SIP/STp/Advance SIP</option>                            
+                            </select>
+                        </td>
+                        <td><input type="text" /></td>
+                        <td><input type="text" /></td>
+                        <td><input type="text" /></td>
+                        <td>
+                            <select name="Location">
+                                <option value="1">T15/All</option>
+                                <option value="2">B15</option>
+                            </select>
+                        </td>
+                        <td>
+                            Yes
+                            <input type="checkbox" value="Yes" />
+                            No
+                            <input type="checkbox" value="No" />
+                        </td>                       
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+</body>
+</html>
