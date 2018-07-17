@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MFBrokerage.Models.BrokerageSlab;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,6 +11,12 @@ namespace MFBrokerage.Controllers
     {
         // GET: BrokerageSlab
         public ActionResult Create()
+        {
+            return View();
+        }
+        [Route("BrokerageSlab/CreateFlatFees")]
+        [HttpPost]
+        public ActionResult CreateFlatFees(List<BrokerageSlabFlatFeesModel> listBrokerageSlabFlatFeesModel)
         {
             return View();
         }
